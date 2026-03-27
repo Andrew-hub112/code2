@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mechanics Test</title>
+
+<style>
+body{font-family:Arial; background:#0f172a; color:white; padding:20px;}
+.container{max-width:950px; margin:auto; background:#111827; padding:20px; border-radius:10px;}
+h2{color:#22c55e;}
+.timer{font-size:20px; color:#f87171;}
+textarea{width:100%; height:80px;}
+button{padding:10px; margin-top:10px;}
+.hidden{display:none;}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Mechanics Conceptual Test</h1>
+<div class="timer" id="timer">30:00</div>
+
+<h2>Instructions</h2>
+<p>
+Solve the preliminary questions to unlock the test.
+To access full theory, explain your answers clearly.
+</p>
+
+<!-- PRELIMINARY -->
+<h2>Preliminary Code</h2>
+
+<p>1. Derivative of x(t)=tan(t²)/√π at t=√π</p>
+<input type="radio" name="q1" value="1">1<br>
+<input type="radio" name="q1" value="2">2 m/s<br>
+<input type="radio" name="q1" value="3">3 m/s<br>
+<input type="radio" name="q1" value="4">N.A<br>
+
+<textarea id="j1" placeholder="Explain your reasoning..."></textarea>
+
+<p>2. Max horizontal range (v=1 m/s, θ=30°)</p>
+<input type="radio" name="q2" value="1">0.088 right<br>
+<input type="radio" name="q2" value="2">left<br>
+<input type="radio" name="q2" value="3">0.002<br>
+<input type="radio" name="q2" value="4">0.23<br>
+
+<textarea id="j2"></textarea>
+
+<p>3. Distance for x(t)=t²−4t+4 from 0 to 4</p>
+<input type="radio" name="q3" value="1">4<br>
+<input type="radio" name="q3" value="2">8<br>
+<input type="radio" name="q3" value="3">2<br>
+<input type="radio" name="q3" value="4">N.A<br>
+
+<textarea id="j3"></textarea>
+
+<button onclick="check()">Submit Preliminary</button>
+
+<!-- THEORY -->
+<div id="theory" class="hidden">
+
+
+
+<h2>Mathematical Formulation</h2>
+
+<p>
+$$
+d = \int_{t_0}^{t_f} |v(t)| \, dt [m]
+$$
+
+$$
+x'(t^*) = 0  [m]/[s],  \quad t_0 < t^* < t_f [s]
+$$
+
+$$
+d = |x(t_f) - x(t^*)| + |x(t^*) - x(t_0)| [m]
+$$
+
+$$
+d = \sum_i \left| x(t_{i+1}) - x(t_i) \right| [m]
+$$
+</p>
+
+<p>
+$$
+\frac{d}{dt} t^N = N t^{N-1}
+$$
+
+$$
+ v(t)= \frac{dx(t)}{dt} [m]/[s]
+$$
+
+$$
+a(t)= \frac{dv(t)}{dt} [m]/[s]^2
+$$
+</p>
+
+<p>
+$$
+\vec{r}(t) = x(t)\hat{i} + y(t)\hat{j} [m]
+$$
+
+$$
+\vec{v}(t) = \frac{d\vec{r}}{dt} [m]/[s]
+$$
+
+$$
+\vec{a}(t) = \frac{d\vec{v}}{dt} [m]/[s]^2
+$$
+</p>
+
+<p>
+$$
+x(t) = x_0 + v_0 \cos\theta \, t  [m]
+$$
+
+$$
+y(t) = y_0 + v_0 \sin\theta \, t - \frac{1}{2} g t^2 [m]
+$$
+
+$$
+R = \frac{v_0^2 \sin(2\theta)}{g} [m]
+$$
+
+$$
+H = y_0 + \frac{v_0^2 \sin^2\theta}{2g} [m]
+$$
+
+$$t_ymax= \frac{v0 \sin(\theta)}{g} [s]$$
+
+$$t_{xmax}= 2\frac{v0 \sin(\theta)}{g} [s]$$  
+</p>
+
+<p>
+$$
+\vec{r} = r \hat{e}_r [m]
+$$
+
+$$
+\vec{v} = \dot{r} \hat{e}_r + r \dot{\theta} \hat{e}_\theta [m]/[s]
+$$
+
+$$
+\vec{a} = (\ddot{r} - r \dot{\theta}^2)\hat{e}_r
++ (r \ddot{\theta} + 2 \dot{r} \dot{\theta})\hat{e}_\theta [m]/[s]^2
+$$
+
+$$
+\hat{e}_r = \cos(\theta) \hat{i} + \sin(\theta) \hat{j}
+$$
+
+$$
+\hat{e}_\theta = -\sin(\theta) \hat{i} + \cos(\theta) \hat{j}
+$$
+</p>
+
+</div>
+
+<!-- MAIN -->
+<div id="main" class="hidden">
+
+<h2>Main Questions</h2>
+
+<p>4. Max height depends on:</p>
+<input type="radio" name="q4" value="1">v² sin²θ / 2g<br>
+<input type="radio" name="q4" value="2">v cosθ<br>
+
+<p>5. Distance always:</p>
+<input type="radio" name="q5" value="1">≤ displacement<br>
+<input type="radio" name="q5" value="2">≥ displacement<br>
+
+<p>6. Radial acceleration term:</p>
+<input type="radio" name="q6" value="1">r̈<br>
+<input type="radio" name="q6" value="2">r̈ − rθ̇²<br>
+
+<p>7. At top of projectile:</p>
+<input type="radio" name="q7" value="1">a=0<br>
+<input type="radio" name="q7" value="2">a=-g<br>
+
+<p>8. Symmetry implies:</p>
+<input type="radio" name="q8" value="1">t_up = t_down<br>
+<input type="radio" name="q8" value="2">velocity constant<br>
+
+<p>9. If returns to start:</p>
+<input type="radio" name="q9" value="1">distance=0<br>
+<input type="radio" name="q9" value="2">distance>0<br>
+
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+// TIMER
+let t=1800;
+setInterval(()=>{
+let m=Math.floor(t/60);
+let s=t%60;
+document.getElementById("timer").innerText=m+":"+(s<10?"0":"")+s;
+t--;
+},1000);
+
+// CHECK PRELIMINARY
+function check(){
+let q1=document.querySelector('input[name="q1"]:checked')?.value;
+let q2=document.querySelector('input[name="q2"]:checked')?.value;
+let q3=document.querySelector('input[name="q3"]:checked')?.value;
+
+let code=q1+q2+q3;
+
+let j1=document.getElementById("j1").value.length;
+let j2=document.getElementById("j2").value.length;
+let j3=document.getElementById("j3").value.length;
+
+if(code==="212"){
+document.getElementById("main").classList.remove("hidden");
+
+// REQUIRE EXPLANATION LENGTH
+if(j1>20 && j2>20 && j3>20){
+document.getElementById("theory").classList.remove("hidden");
+alert("Full access granted.");
+}else{
+alert("Answers correct, but explanation insufficient. No formulas unlocked.");
+}
+}else{
+alert("Incorrect code.");
+}
+}
+
+// SUBMIT
+function submitTest(){
+
+let answers={q4:"1",q5:"2",q6:"2",q7:"2",q8:"1",q9:"2"};
+let score=0;
+
+for(let q in answers){
+let val=document.querySelector(`input[name="${q}"]:checked`);
+if(val && val.value===answers[q]) score++;
+}
+
+document.getElementById("result").innerHTML =
+"<h2>Score: "+score+"/6</h2>";
+
+// 🔥 FULL UNLOCK CONDITION
+let j1=document.getElementById("j1").value.length;
+let j2=document.getElementById("j2").value.length;
+let j3=document.getElementById("j3").value.length;
+
+if(score===6 && j1>20 && j2>20 && j3>20){
+document.getElementById("overleaf").classList.remove("hidden");
+alert("🏆 Full reward unlocked: Overleaf export enabled.");
+}
+
+}
+
+</script>
+
+<div id="overleaf" class="hidden">
+
+<h2>📄 Export to PDF using LaTeX</h2>
+
+<p>
+To generate a professional PDF, you may choose one of the following methods:
+</p>
+
+<h3>🌐 Option 1: Online (Overleaf)</h3>
+<ol>
+<li>Go to: https://www.overleaf.com</li>
+<li>Create a new project → <b>Blank Project</b></li>
+<li>Copy and paste the LaTeX code below</li>
+<li>Click <b>Recompile</b></li>
+<li>Download the generated PDF</li>
+</ol>
+
+<h3>💻 Option 2: Local Installation (TeX Live / MiKTeX)</h3>
+<ol>
+<li>Install a LaTeX distribution:
+  <ul>
+    <li>TeX Live: https://www.tug.org/texlive/</li>
+    <li>MiKTeX: https://miktex.org/</li>
+  </ul>
+</li>
+<li>Install a LaTeX editor (recommended):
+  <ul>
+    <li>TeXstudio</li>
+    <li>VS Code (with LaTeX Workshop extension)</li>
+  </ul>
+</li>
+<li>Create a file named <b>main.tex</b></li>
+<li>Paste the LaTeX code below</li>
+<li>Compile using <b>pdflatex</b> or the editor's build button</li>
+<li>Open the generated PDF file</li>
+</ol>
+
+<p>
+The objective is not the tool itself, but the correct mathematical formulation and presentation.
+</p>
+
+<p>
+External tools mentioned are optional and provided for educational purposes. 
+The platform is not affiliated with any external service.
+</p>
+
+<textarea style="width:100%; height:300px;">
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section*{Mathematical Formulation}
+
+\[
+d = \int_{t_0}^{t_f} |v(t)| \, dt
+\]
+
+\[
+x'(t^*) = 0, \quad t_0 < t^* < t_f
+\]
+
+\[
+d = |x(t_f) - x(t^*)| + |x(t^*) - x(t_0)|
+\]
+
+\[
+d = \sum_i |x(t_{i+1}) - x(t_i)|
+\]
+
+\[
+\frac{d}{dt} t^N = N t^{N-1}
+\]
+
+\[
+\vec{r}(t) = x(t)\hat{i} + y(t)\hat{j}
+\]
+
+\[
+\vec{v}(t) = \frac{d\vec{r}}{dt}
+\]
+
+\[
+\vec{a}(t) = \frac{d\vec{v}}{dt}
+\]
+
+\[
+x(t) = x_0 + v_0 \cos\theta \, t
+\]
+
+\[
+y(t) = y_0 + v_0 \sin\theta \, t - \frac{1}{2} g t^2
+\]
+
+\[
+R = \frac{v_0^2 \sin(2\theta)}{g}
+\]
+
+\[
+H = y_0 + \frac{v_0^2 \sin^2\theta}{2g}
+\]
+
+\[
+\vec{r} = r \hat{e}_r
+\]
+
+\[
+\vec{v} = \dot{r} \hat{e}_r + r \dot{\theta} \hat{e}_\theta
+\]
+
+\[
+\vec{a} = (\ddot{r} - r \dot{\theta}^2)\hat{e}_r
++ (r \ddot{\theta} + 2 \dot{r} \dot{\theta})\hat{e}_\theta
+\]
+
+\end{document}
+</textarea>
+
+<p>
+Only students who completed all stages correctly can access this section.
+</p>
+
+</div>
+
+
+
+
+
+</body>
+</html>
